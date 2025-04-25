@@ -4,13 +4,14 @@ dotenv.config()
 
 //Database configuration
 
-// const sequelize = new Sequelize(process.env.DB_NAME, 'postgres', process.env.DB_PASS, {
-//   host: process.env.DB_HOST,
-//   dialect: 'postgres'
-// });
-const sequelize = new Sequelize(process.env.URI, {
-  dialect: 'postgres', // Explicitly provide the dialect
-}) // Example for postgres
+const sequelize = new Sequelize(process.env.DB_NAME, 'postgres', process.env.DB_PASS, {
+  host: process.env.DB_HOST,
+  dialect: 'postgres',
+  logging: false, // Disable SQL query logging
+});
+// const sequelize = new Sequelize(process.env.URI, {
+//   dialect: 'postgres', // Explicitly provide the dialect
+// }) // Example for postgres
 
 const connectionDB = async () => {
   try {
